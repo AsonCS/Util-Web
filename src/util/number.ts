@@ -1,4 +1,8 @@
 export function generateNumbers(max: number, size: number): string {
+    if (size > max) {
+        alert('Size cannot be greater than max')
+        return ''
+    }
     const numbers = Array<string>()
     while (numbers.length < size) {
         const number = (Math.floor(Math.random() * max) + 1)
