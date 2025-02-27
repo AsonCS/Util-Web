@@ -1,16 +1,14 @@
 'use client'
 
-import { generateNumbers } from '../util/number'
+import { useSearchParams } from 'next/navigation'
+
+import { generateNumbers } from '../../util/number'
 
 export default function Lottery() {
-    let amount = undefined
-    let max = undefined
-    if (typeof window !== 'undefined') {
-        const params = new URLSearchParams(window.location.search)
-        amount = parseInt(params.get('amount') || '')
-        max = parseInt(params.get('max') || '')
-    }
-
+    const params = useSearchParams()
+    const amount = parseInt(params.get('amount') || '')
+    const max = parseInt(params.get('max') || '')
+    console.log(amount, max)
     return (
         <main className="flex flex-col gap-8 items-center p-8 font-[family-name:var(--font-geist-sans)]">
             <h1 className="text-4xl">Lottery</h1>
